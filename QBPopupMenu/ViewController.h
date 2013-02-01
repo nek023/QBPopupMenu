@@ -8,6 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
+@class QBPopupMenu;
+
 @interface ViewController : UIViewController
+
+@property (nonatomic, retain) QBPopupMenu *popupMenu;
+@property (nonatomic, retain) QBPopupMenu *popupMenu2;
+
+- (IBAction)showPopupMenu:(id)sender;
+- (IBAction)showPopupMenu2:(id)sender;
 
 @end
