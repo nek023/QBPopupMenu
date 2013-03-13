@@ -24,9 +24,9 @@
 		AA10914516BB87D200AFCDED /* icon_reply@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AA10913916BB87D200AFCDED /* icon_reply@2x.png */; };
 		AA10914616BB87D200AFCDED /* icon_retweet.png in Resources */ = {isa = PBXBuildFile; fileRef = AA10913A16BB87D200AFCDED /* icon_retweet.png */; };
 		AA10914716BB87D200AFCDED /* icon_retweet@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AA10913B16BB87D200AFCDED /* icon_retweet@2x.png */; };
-		AA10914816BB87D200AFCDED /* QBPopupMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = AA10913D16BB87D200AFCDED /* QBPopupMenu.m */; };
-		AA10914916BB87D200AFCDED /* QBPopupMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = AA10913F16BB87D200AFCDED /* QBPopupMenuItem.m */; };
-		AA10914A16BB87D200AFCDED /* QBPopupMenuOverlayView.m in Sources */ = {isa = PBXBuildFile; fileRef = AA10914116BB87D200AFCDED /* QBPopupMenuOverlayView.m */; };
+		AAA2BEC716F03DB300399345 /* QBPopupMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = AAA2BEC216F03DB300399345 /* QBPopupMenu.m */; };
+		AAA2BEC816F03DB300399345 /* QBPopupMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = AAA2BEC416F03DB300399345 /* QBPopupMenuItem.m */; };
+		AAA2BEC916F03DB300399345 /* QBPopupMenuOverlayView.m in Sources */ = {isa = PBXBuildFile; fileRef = AAA2BEC616F03DB300399345 /* QBPopupMenuOverlayView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,12 +52,12 @@
 		AA10913916BB87D200AFCDED /* icon_reply@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_reply@2x.png"; sourceTree = "<group>"; };
 		AA10913A16BB87D200AFCDED /* icon_retweet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_retweet.png; sourceTree = "<group>"; };
 		AA10913B16BB87D200AFCDED /* icon_retweet@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_retweet@2x.png"; sourceTree = "<group>"; };
-		AA10913C16BB87D200AFCDED /* QBPopupMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QBPopupMenu.h; sourceTree = "<group>"; };
-		AA10913D16BB87D200AFCDED /* QBPopupMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QBPopupMenu.m; sourceTree = "<group>"; };
-		AA10913E16BB87D200AFCDED /* QBPopupMenuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QBPopupMenuItem.h; sourceTree = "<group>"; };
-		AA10913F16BB87D200AFCDED /* QBPopupMenuItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QBPopupMenuItem.m; sourceTree = "<group>"; };
-		AA10914016BB87D200AFCDED /* QBPopupMenuOverlayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QBPopupMenuOverlayView.h; sourceTree = "<group>"; };
-		AA10914116BB87D200AFCDED /* QBPopupMenuOverlayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QBPopupMenuOverlayView.m; sourceTree = "<group>"; };
+		AAA2BEC116F03DB300399345 /* QBPopupMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QBPopupMenu.h; sourceTree = "<group>"; };
+		AAA2BEC216F03DB300399345 /* QBPopupMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QBPopupMenu.m; sourceTree = "<group>"; };
+		AAA2BEC316F03DB300399345 /* QBPopupMenuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QBPopupMenuItem.h; sourceTree = "<group>"; };
+		AAA2BEC416F03DB300399345 /* QBPopupMenuItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QBPopupMenuItem.m; sourceTree = "<group>"; };
+		AAA2BEC516F03DB300399345 /* QBPopupMenuOverlayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QBPopupMenuOverlayView.h; sourceTree = "<group>"; };
+		AAA2BEC616F03DB300399345 /* QBPopupMenuOverlayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QBPopupMenuOverlayView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,7 +104,7 @@
 		AA10911916BB878C00AFCDED /* QBPopupMenu */ = {
 			isa = PBXGroup;
 			children = (
-				AA10914C16BB87E100AFCDED /* Classes */,
+				AAA2BEC016F03DB300399345 /* Classes */,
 				AA10912216BB878C00AFCDED /* AppDelegate.h */,
 				AA10912316BB878C00AFCDED /* AppDelegate.m */,
 				AA10912B16BB878C00AFCDED /* MainStoryboard.storyboard */,
@@ -143,18 +143,18 @@
 			name = Resources;
 			sourceTree = "<group>";
 		};
-		AA10914C16BB87E100AFCDED /* Classes */ = {
+		AAA2BEC016F03DB300399345 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				AA10913C16BB87D200AFCDED /* QBPopupMenu.h */,
-				AA10913D16BB87D200AFCDED /* QBPopupMenu.m */,
-				AA10913E16BB87D200AFCDED /* QBPopupMenuItem.h */,
-				AA10913F16BB87D200AFCDED /* QBPopupMenuItem.m */,
-				AA10914016BB87D200AFCDED /* QBPopupMenuOverlayView.h */,
-				AA10914116BB87D200AFCDED /* QBPopupMenuOverlayView.m */,
+				AAA2BEC116F03DB300399345 /* QBPopupMenu.h */,
+				AAA2BEC216F03DB300399345 /* QBPopupMenu.m */,
+				AAA2BEC316F03DB300399345 /* QBPopupMenuItem.h */,
+				AAA2BEC416F03DB300399345 /* QBPopupMenuItem.m */,
+				AAA2BEC516F03DB300399345 /* QBPopupMenuOverlayView.h */,
+				AAA2BEC616F03DB300399345 /* QBPopupMenuOverlayView.m */,
 			);
-			name = Classes;
-			sourceTree = "<group>";
+			path = Classes;
+			sourceTree = SOURCE_ROOT;
 		};
 /* End PBXGroup section */
 
@@ -231,9 +231,9 @@
 				AA10912016BB878C00AFCDED /* main.m in Sources */,
 				AA10912416BB878C00AFCDED /* AppDelegate.m in Sources */,
 				AA10913016BB878C00AFCDED /* ViewController.m in Sources */,
-				AA10914816BB87D200AFCDED /* QBPopupMenu.m in Sources */,
-				AA10914916BB87D200AFCDED /* QBPopupMenuItem.m in Sources */,
-				AA10914A16BB87D200AFCDED /* QBPopupMenuOverlayView.m in Sources */,
+				AAA2BEC716F03DB300399345 /* QBPopupMenu.m in Sources */,
+				AAA2BEC816F03DB300399345 /* QBPopupMenuItem.m in Sources */,
+				AAA2BEC916F03DB300399345 /* QBPopupMenuOverlayView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
