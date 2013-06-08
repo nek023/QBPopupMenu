@@ -30,21 +30,21 @@
 
 @implementation QBPopupMenu
 
-- (id)init
+- (instancetype)init
 {
     return [self initWithItems:nil];
 }
 
-- (id)initWithFrame:(CGRect)frame
+- (instancetype)initWithFrame:(CGRect)frame
 {
     return [self initWithItems:nil];
 }
 
-- (id)initWithItems:(NSArray *)items
+- (instancetype)initWithItems:(NSArray *)items
 {
     self = [super initWithFrame:CGRectZero];
     
-    if(self) {
+    if (self) {
         // ビューの設定
         self.opaque = NO;
         self.backgroundColor = [UIColor clearColor];
@@ -66,7 +66,7 @@
 {
     _items = [items copy];
     
-    if(items) {
+    if (items) {
         // サイズを計算
         CGSize actualSize = [self actualSize];
         actualSize.height = actualSize.height + self.arrowSize;
@@ -78,7 +78,7 @@
         self.highlightedPopupImage = [self popupImageForState:QBPopupMenuStateHighlighted];
         
         // サブビューを削除
-        for(UIView *subview in self.subviews) {
+        for (UIView *subview in self.subviews) {
             [subview removeFromSuperview];
         }
         
@@ -88,7 +88,7 @@
         
         CGFloat itemOffset = 0;
         
-        for(NSUInteger i = 0; i < self.items.count; i++) {
+        for (NSUInteger i = 0; i < self.items.count; i++) {
             QBPopupMenuItem *item = [self.items objectAtIndex:i];
             CGSize itemSize = [item actualSize];
             CGRect itemFrame = CGRectMake(itemOffset, 0, itemSize.width, actualSize.height);
@@ -113,12 +113,12 @@
             [self addSubview:button];
             
             // ボタン上のアイテムを設置
-            if(item.customView) {
+            if (item.customView) {
                 item.customView.frame = CGRectMake(itemOffset, 0, itemSize.width, frameSize.height);
                 
                 [self addSubview:item.customView];
             } else {
-                if(item.title && item.image) {
+                if (item.title && item.image) {
                     // Image
                     UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(itemOffset, 4, itemSize.width, middle - 4)];
                     imageView.image = item.image;
@@ -138,7 +138,7 @@
                     titleLabel.autoresizingMask = UIViewAutoresizingNone;
                     
                     [self addSubview:titleLabel];
-                } else if(item.title) {
+                } else if (item.title) {
                     // Title
                     UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(itemOffset, 0, itemSize.width, frameSize.height)];
                     titleLabel.text = item.title;
@@ -149,7 +149,7 @@
                     titleLabel.autoresizingMask = UIViewAutoresizingNone;
                     
                     [self addSubview:titleLabel];
-                } else if(item.image) {
+                } else if (item.image) {
                     // Image
                     UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(itemOffset, 4, itemSize.width, frameSize.height - 4)];
                     imageView.image = item.image;
@@ -173,7 +173,7 @@
 - (void)showInView:(UIView *)view atPoint:(CGPoint)point;
 {
     // デリゲート
-    if([self.delegate respondsToSelector:@selector(popupMenuWillAppear:)]) {
+    if ([self.delegate respondsToSelector:@selector(popupMenuWillAppear:)]) {
         [self.delegate popupMenuWillAppear:self];
     }
     
@@ -195,7 +195,7 @@
     self.layer.shadowRadius = 1.5;
     
     // アニメーションの準備
-    if(self.animationEnabled) {
+    if (self.animationEnabled) {
         self.layer.opacity = 0;
     }
     
@@ -203,18 +203,18 @@
     [self.overlayView addSubview:self];
     [view addSubview:self.overlayView];
     
-    if(self.animationEnabled) {
+    if (self.animationEnabled) {
         [UIView animateWithDuration:0.2 animations:^(void) {
             self.layer.opacity = 1.0;
         } completion:^(BOOL finished) {
             // デリゲート
-            if([self.delegate respondsToSelector:@selector(popupMenuDidAppear:)]) {
+            if ([self.delegate respondsToSelector:@selector(popupMenuDidAppear:)]) {
                 [self.delegate popupMenuDidAppear:self];
             }
         }];
     } else {
         // デリゲート
-        if([self.delegate respondsToSelector:@selector(popupMenuDidAppear:)]) {
+        if ([self.delegate respondsToSelector:@selector(popupMenuDidAppear:)]) {
             [self.delegate popupMenuDidAppear:self];
         }
     }
@@ -223,12 +223,12 @@
 - (void)dismiss
 {
     // デリゲート
-    if([self.delegate respondsToSelector:@selector(popupMenuWillDisappear:)]) {
+    if ([self.delegate respondsToSelector:@selector(popupMenuWillDisappear:)]) {
         [self.delegate popupMenuWillDisappear:self];
     }
     
     // ポップアップを消す
-    if(self.animationEnabled) {
+    if (self.animationEnabled) {
         // アニメーションあり
         [UIView animateWithDuration:0.2 animations:^(void) {
             self.layer.opacity = 0;
@@ -237,7 +237,7 @@
             [self.overlayView removeFromSuperview];
             
             // デリゲートメソッド
-            if([self.delegate respondsToSelector:@selector(popupMenuDidDisappear:)]) {
+            if ([self.delegate respondsToSelector:@selector(popupMenuDidDisappear:)]) {
                 [self.delegate popupMenuDidDisappear:self];
             }
         }];
@@ -247,7 +247,7 @@
         [self.overlayView removeFromSuperview];
         
         // デリゲートメソッド
-        if([self.delegate respondsToSelector:@selector(popupMenuDidDisappear:)]) {
+        if ([self.delegate respondsToSelector:@selector(popupMenuDidDisappear:)]) {
             [self.delegate popupMenuDidDisappear:self];
         }
     }
@@ -267,13 +267,13 @@
 {
     CGFloat width = 0, height = 0;
     
-    for(NSUInteger i = 0; i < self.items.count; i++) {
+    for (NSUInteger i = 0; i < self.items.count; i++) {
         QBPopupMenuItem *item = [self.items objectAtIndex:i];
         CGSize actualItemSize = [item actualSize];
         
         width = width + actualItemSize.width;
         
-        if(actualItemSize.height > height) {
+        if (actualItemSize.height > height) {
             height = actualItemSize.height;
         }
     }
@@ -334,7 +334,7 @@
     CGPathRelease(basePath);
     
     // 矢印
-    if(state == QBPopupMenuStateHighlighted) {
+    if (state == QBPopupMenuStateHighlighted) {
         CGMutablePathRef arrowPath = CGPathCreateMutable();
         
         CGPathMoveToPoint(arrowPath, NULL, point.x + arrowSize, frameSize.height - inset);
@@ -516,17 +516,17 @@
     // セパレータを描画
     CGFloat separatorOffset = 0;
     
-    if(self.items.count > 1) {
-        for(NSUInteger i = 0; i < self.items.count; i++) {
+    if (self.items.count > 1) {
+        for (NSUInteger i = 0; i < self.items.count; i++) {
             QBPopupMenuItem *item = [self.items objectAtIndex:i];
             CGSize actualSize = [item actualSize];
             
-            if(i == 0) {
+            if (i == 0) {
                 // 右側に描く
                 separatorOffset = separatorOffset + actualSize.width;
                 
                 [self drawRightSeparatorInContext:context startPoint:CGPointMake(separatorOffset - 1, inset * 2) endPoint:CGPointMake(separatorOffset - 1, frameSize.height - inset * 2) state:state];
-            } else if(i == self.items.count - 1) {
+            } else if (i == self.items.count - 1) {
                 // 左側に描く
                 [self drawLeftSeparatorInContext:context startPoint:CGPointMake(separatorOffset, inset * 2) endPoint:CGPointMake(separatorOffset, frameSize.height - inset * 2) state:state];
                 

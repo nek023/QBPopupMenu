@@ -13,10 +13,10 @@
 
 #import "QBPopupMenuItem.h"
 
-typedef enum {
+typedef NS_ENUM(NSInteger, QBPopupMenuState) {
     QBPopupMenuStateNormal,
     QBPopupMenuStateHighlighted
-} QBPopupMenuState;
+};
 
 @class QBPopupMenu;
 
@@ -38,7 +38,7 @@ typedef enum {
 @property (nonatomic, assign) CGFloat arrowSize;
 @property (nonatomic, assign, getter = isAnimationEnabled) BOOL animationEnabled;
 
-- (id)initWithItems:(NSArray *)items;
+- (instancetype)initWithItems:(NSArray *)items;
 
 - (void)showInView:(UIView *)view atPoint:(CGPoint)point;
 - (void)dismiss;

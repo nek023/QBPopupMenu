@@ -15,7 +15,7 @@
 + (UIFont *)fontForTitle;
 + (UIFont *)fontForTitleWithImage;
 
-- (id)initWithTitle:(NSString *)title image:(UIImage *)image customView:(UIView *)customView target:(id)target action:(SEL)action;
+- (instancetype)initWithTitle:(NSString *)title image:(UIImage *)image customView:(UIView *)customView target:(id)target action:(SEL)action;
 
 @end
 
@@ -31,47 +31,47 @@
     return [UIFont boldSystemFontOfSize:12];
 }
 
-+ (id)itemWithTitle:(NSString *)title target:(id)target action:(SEL)action
++ (instancetype)itemWithTitle:(NSString *)title target:(id)target action:(SEL)action
 {
     return [[self alloc] initWithTitle:title target:target action:action];
 }
 
-+ (id)itemWithImage:(UIImage *)image target:(id)target action:(SEL)action
++ (instancetype)itemWithImage:(UIImage *)image target:(id)target action:(SEL)action
 {
     return [[self alloc] initWithImage:image target:target action:action];
 }
 
-+ (id)itemWithTitle:(NSString *)title image:(UIImage *)image target:(id)target action:(SEL)action
++ (instancetype)itemWithTitle:(NSString *)title image:(UIImage *)image target:(id)target action:(SEL)action
 {
     return [[self alloc] initWithTitle:title image:image target:target action:action];
 }
 
-+ (id)itemWithCustomView:(UIView *)customView target:(id)target action:(SEL)action
++ (instancetype)itemWithCustomView:(UIView *)customView target:(id)target action:(SEL)action
 {
     return [[self alloc] initWithCustomView:customView target:target action:action];
 }
 
-- (id)initWithTitle:(NSString *)title target:(id)target action:(SEL)action
+- (instancetype)initWithTitle:(NSString *)title target:(id)target action:(SEL)action
 {
     return [self initWithTitle:title image:nil customView:nil target:target action:action];
 }
 
-- (id)initWithImage:(UIImage *)image target:(id)target action:(SEL)action
+- (instancetype)initWithImage:(UIImage *)image target:(id)target action:(SEL)action
 {
     return [self initWithTitle:nil image:image customView:nil target:target action:action];
 }
 
-- (id)initWithTitle:(NSString *)title image:(UIImage *)image target:(id)target action:(SEL)action
+- (instancetype)initWithTitle:(NSString *)title image:(UIImage *)image target:(id)target action:(SEL)action
 {
     return [self initWithTitle:title image:image customView:nil target:target action:action];
 }
 
-- (id)initWithCustomView:(UIView *)customView target:(id)target action:(SEL)action
+- (instancetype)initWithCustomView:(UIView *)customView target:(id)target action:(SEL)action
 {
     return [self initWithTitle:nil image:nil customView:customView target:target action:action];
 }
 
-- (id)initWithTitle:(NSString *)title image:(UIImage *)image customView:(UIView *)customView target:(id)target action:(SEL)action
+- (instancetype)initWithTitle:(NSString *)title image:(UIImage *)image customView:(UIView *)customView target:(id)target action:(SEL)action
 {
     self = [super init];
     
@@ -98,33 +98,33 @@
 {
     CGFloat width = 0, height = 0;
     
-    if(self.customView) {
+    if (self.customView) {
         width = self.customView.frame.size.width;
         height = self.customView.frame.size.height;
     } else {
-        if(self.width > 0) {
+        if (self.width > 0) {
             width = self.width;
             height = 50;
         } else {
             height = 50;
             
-            if(self.title && self.image) {
+            if (self.title && self.image) {
                 UIFont *font = (self.font) ? self.font : [QBPopupMenuItem fontForTitleWithImage];
                 
                 CGSize titleSize = [self.title sizeWithFont:font];
                 CGSize imageSize = self.image.size;
                 
-                if(titleSize.width > imageSize.width) {
+                if (titleSize.width > imageSize.width) {
                     width = titleSize.width;
                 } else {
                     width = imageSize.width;
                 }
-            } else if(self.title) {
+            } else if (self.title) {
                 UIFont *font = (self.font) ? self.font : [QBPopupMenuItem fontForTitle];
                 
                 CGSize titleSize = [self.title sizeWithFont:font];
                 width = titleSize.width;
-            } else if(self.image) {
+            } else if (self.image) {
                 width = self.image.size.width;
             }
             
@@ -140,8 +140,8 @@
 {
     UIFont *font = self.font;
     
-    if(font == nil) {
-        if(self.title && self.image) {
+    if (font == nil) {
+        if (self.title && self.image) {
             font = [QBPopupMenuItem fontForTitleWithImage];
         } else {
             font = [QBPopupMenuItem fontForTitle];
@@ -153,7 +153,7 @@
 
 - (void)performAction
 {
-    if([self.target respondsToSelector:self.action]) {
+    if ([self.target respondsToSelector:self.action]) {
         [self.target performSelectorOnMainThread:self.action withObject:self waitUntilDone:YES];
     }
 }

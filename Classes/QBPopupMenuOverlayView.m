@@ -14,11 +14,11 @@
 
 @implementation QBPopupMenuOverlayView
 
-- (id)initWithFrame:(CGRect)frame
+- (instancetype)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
     
-    if(self) {
+    if (self) {
         self.backgroundColor = [UIColor clearColor];
     }
     
@@ -30,7 +30,7 @@
     UITouch *touch = [touches anyObject];
     UIView *view = touch.view;
     
-    if([view isMemberOfClass:[QBPopupMenuOverlayView class]]) {
+    if ([view isMemberOfClass:[QBPopupMenuOverlayView class]]) {
         [self.popupMenu dismiss];
     }
 }

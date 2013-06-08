@@ -61,13 +61,15 @@
 
 #pragma mark -
 
-- (IBAction)showPopupMenu:(id)sender {
+- (IBAction)showPopupMenu:(id)sender
+{
     UIButton *button = (UIButton *)sender;
     
     [self.popupMenu showInView:self.view atPoint:CGPointMake(button.center.x, button.frame.origin.y)];
 }
 
-- (IBAction)showPopupMenu2:(id)sender {
+- (IBAction)showPopupMenu2:(id)sender
+{
     UIButton *button = (UIButton *)sender;
     
     [self.popupMenu2 showInView:self.view atPoint:CGPointMake(button.center.x, button.frame.origin.y)];

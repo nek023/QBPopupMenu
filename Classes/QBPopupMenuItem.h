@@ -24,15 +24,15 @@
 @property (nonatomic, assign) CGFloat width;
 @property (nonatomic, strong) UIFont *font;
 
-+ (id)itemWithTitle:(NSString *)title target:(id)target action:(SEL)action;
-+ (id)itemWithImage:(UIImage *)image target:(id)target action:(SEL)action;
-+ (id)itemWithTitle:(NSString *)title image:(UIImage *)image target:(id)target action:(SEL)action;
-+ (id)itemWithCustomView:(UIView *)customView target:(id)target action:(SEL)action;
++ (instancetype)itemWithTitle:(NSString *)title target:(id)target action:(SEL)action;
++ (instancetype)itemWithImage:(UIImage *)image target:(id)target action:(SEL)action;
++ (instancetype)itemWithTitle:(NSString *)title image:(UIImage *)image target:(id)target action:(SEL)action;
++ (instancetype)itemWithCustomView:(UIView *)customView target:(id)target action:(SEL)action;
 
-- (id)initWithTitle:(NSString *)title target:(id)target action:(SEL)action;
-- (id)initWithImage:(UIImage *)image target:(id)target action:(SEL)action;
-- (id)initWithTitle:(NSString *)title image:(UIImage *)image target:(id)target action:(SEL)action;
-- (id)initWithCustomView:(UIView *)customView target:(id)target action:(SEL)action;
+- (instancetype)initWithTitle:(NSString *)title target:(id)target action:(SEL)action;
+- (instancetype)initWithImage:(UIImage *)image target:(id)target action:(SEL)action;
+- (instancetype)initWithTitle:(NSString *)title image:(UIImage *)image target:(id)target action:(SEL)action;
+- (instancetype)initWithCustomView:(UIView *)customView target:(id)target action:(SEL)action;
 
 - (CGSize)actualSize;
 - (UIFont *)actualFont;
