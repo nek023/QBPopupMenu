@@ -316,6 +316,7 @@
 		AA10913416BB878C00AFCDED /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "QBPopupMenu/QBPopupMenu-Prefix.pch";
 				INFOPLIST_FILE = "QBPopupMenu/QBPopupMenu-Info.plist";
@@ -327,6 +328,7 @@
 		AA10913516BB878C00AFCDED /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "QBPopupMenu/QBPopupMenu-Prefix.pch";
 				INFOPLIST_FILE = "QBPopupMenu/QBPopupMenu-Info.plist";

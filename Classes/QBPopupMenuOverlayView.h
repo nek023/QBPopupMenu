@@ -14,6 +14,6 @@
 
 @interface QBPopupMenuOverlayView : UIView
 
-@property (nonatomic, assign) QBPopupMenu *popupMenu;
+@property (nonatomic, weak) QBPopupMenu *popupMenu;
 
 @end

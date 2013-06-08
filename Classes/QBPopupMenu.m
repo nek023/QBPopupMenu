@@ -14,10 +14,10 @@
 
 @interface QBPopupMenu ()
 
-@property (nonatomic, retain) QBPopupMenuOverlayView *overlayView;
+@property (nonatomic, strong) QBPopupMenuOverlayView *overlayView;
 
-@property (nonatomic, retain) UIImage *popupImage;
-@property (nonatomic, retain) UIImage *highlightedPopupImage;
+@property (nonatomic, strong) UIImage *popupImage;
+@property (nonatomic, strong) UIImage *highlightedPopupImage;
 
 - (void)performAction:(id)sender;
 - (CGSize)actualSize;
@@ -127,7 +127,6 @@
                     imageView.autoresizingMask = UIViewAutoresizingNone;
                     
                     [self addSubview:imageView];
-                    [imageView release];
                     
                     // Title
                     UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(itemOffset, middle, itemSize.width, middle)];
@@ -139,7 +138,6 @@
                     titleLabel.autoresizingMask = UIViewAutoresizingNone;
                     
                     [self addSubview:titleLabel];
-                    [titleLabel release];
                 } else if(item.title) {
                     // Title
                     UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(itemOffset, 0, itemSize.width, frameSize.height)];
@@ -151,7 +149,6 @@
                     titleLabel.autoresizingMask = UIViewAutoresizingNone;
                     
                     [self addSubview:titleLabel];
-                    [titleLabel release];
                 } else if(item.image) {
                     // Image
                     UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(itemOffset, 4, itemSize.width, frameSize.height - 4)];
@@ -161,7 +158,6 @@
                     imageView.autoresizingMask = UIViewAutoresizingNone;
                     
                     [self addSubview:imageView];
-                    [imageView release];
                 }
             }
             
@@ -170,12 +166,6 @@
     }
 }
 
-- (void)dealloc
-{
-    [_items release];
-    
-    [super dealloc];
-}
 
 
 #pragma mark -
@@ -198,7 +188,6 @@
     overlayView.popupMenu = self;
     
     self.overlayView = overlayView;
-    [overlayView release];
     
     // 影を点ける
     self.layer.shadowOpacity = 0.5;

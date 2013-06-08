@@ -32,7 +32,7 @@ typedef enum {
 
 @interface QBPopupMenu : UIView
 
-@property (nonatomic, assign) id<QBPopupMenuDelegate> delegate;
+@property (nonatomic, weak) id<QBPopupMenuDelegate> delegate;
 @property (nonatomic, copy) NSArray *items;
 @property (nonatomic, assign) CGFloat cornerRadius;
 @property (nonatomic, assign) CGFloat arrowSize;

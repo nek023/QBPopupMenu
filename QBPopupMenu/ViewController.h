@@ -12,8 +12,8 @@
 
 @interface ViewController : UIViewController
 
-@property (nonatomic, retain) QBPopupMenu *popupMenu;
-@property (nonatomic, retain) QBPopupMenu *popupMenu2;
+@property (nonatomic, strong) QBPopupMenu *popupMenu;
+@property (nonatomic, strong) QBPopupMenu *popupMenu2;
 
 - (IBAction)showPopupMenu:(id)sender;
 - (IBAction)showPopupMenu2:(id)sender;

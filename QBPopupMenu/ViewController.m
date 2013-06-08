@@ -31,7 +31,6 @@
     popupMenu.items = [NSArray arrayWithObjects:item1, item2, item3, nil];
     
     self.popupMenu = popupMenu;
-    [popupMenu release];
     
     // popupMenu2
     QBPopupMenu *popupMenu2 = [[QBPopupMenu alloc] init];
@@ -52,21 +51,12 @@
     QBPopupMenuItem *item6 = [QBPopupMenuItem itemWithCustomView:customView target:nil action:NULL];
     item6.enabled = NO;
     
-    [customView release];
     
     popupMenu2.items = [NSArray arrayWithObjects:item4, item5, item6, nil];
     
     self.popupMenu2 = popupMenu2;
-    [popupMenu2 release];
 }
 
-- (void)dealloc
-{
-    [_popupMenu release];
-    [_popupMenu2 release];
-    
-    [super dealloc];
-}
 
 
 #pragma mark -

@@ -15,14 +15,14 @@
 @interface QBPopupMenuItem : NSObject
 
 @property (nonatomic, copy) NSString *title;
-@property (nonatomic, retain) UIImage *image;
-@property (nonatomic, retain) UIView *customView;
-@property (nonatomic, assign) id target;
+@property (nonatomic, strong) UIImage *image;
+@property (nonatomic, strong) UIView *customView;
+@property (nonatomic, weak) id target;
 @property (nonatomic, assign) SEL action;
 
 @property (nonatomic, assign, getter = isEnabled) BOOL enabled;
 @property (nonatomic, assign) CGFloat width;
-@property (nonatomic, retain) UIFont *font;
+@property (nonatomic, strong) UIFont *font;
 
 + (id)itemWithTitle:(NSString *)title target:(id)target action:(SEL)action;
 + (id)itemWithImage:(UIImage *)image target:(id)target action:(SEL)action;
