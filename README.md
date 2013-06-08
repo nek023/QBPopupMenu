@@ -2,6 +2,14 @@
 *QBPopupMenu* is a popup menu for iOS without using image files.
 
 
+## Installation
+QBPopupMenu can be installed via [CocoaPods](http://cocoapods.org/).
+
+    pod 'QBPopupMenu'
+
+Or simply download and include it in your project manually.
+
+
 ## ScreenShot
 ![ss01.png](http://adotout.sakura.ne.jp/github/QBPopupMenu/ss01.png)
 ![ss02.png](http://adotout.sakura.ne.jp/github/QBPopupMenu/ss02.png)
