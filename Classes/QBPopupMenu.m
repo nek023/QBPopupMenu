@@ -50,9 +50,9 @@
         self.backgroundColor = [UIColor clearColor];
         
         // 初期設定
-        self.items = items;
         self.cornerRadius = 8;
         self.arrowSize = 12;
+        self.items = items;
         self.animationEnabled = YES;
         
         self.popupImage = nil;
