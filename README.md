@@ -7,6 +7,7 @@ Its appearance is similar to `UIMenuController` of iOS 7, and it has several new
 
 ## Screenshot
 ![ss01.png](http://adotout.sakura.ne.jp/github/QBPopupMenu/2.0/ss01.png)
+
 ![ss02.png](http://adotout.sakura.ne.jp/github/QBPopupMenu/2.0/ss02.png)
 
 
