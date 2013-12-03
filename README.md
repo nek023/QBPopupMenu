@@ -1,32 +1,46 @@
 # QBPopupMenu
-*QBPopupMenu* is a popup menu for iOS without using image files.
+Customizable popup menu for iOS.
+
+**QBPopupMenu version 2.0 is now available.**  
+Its appearance is similar to `UIMenuController` of iOS 7, and it has several new features.
+
+
+## Screenshot
+![ss01.png](http://adotout.sakura.ne.jp/github/QBPopupMenu/2.0/ss01.png)
+![ss02.png](http://adotout.sakura.ne.jp/github/QBPopupMenu/2.0/ss02.png)
 
 
 ## Installation
-QBPopupMenu can be installed via [CocoaPods](http://cocoapods.org/).
+QBPopupMenu is available in CocoaPods.
 
     pod 'QBPopupMenu'
 
-Or simply download and include it in your project manually.
+If you want to install manually, download this repository and copy files in QBPopupMenu directory to your project.
 
 
-## ScreenShot
-![ss01.png](http://adotout.sakura.ne.jp/github/QBPopupMenu/ss01.png)
-![ss02.png](http://adotout.sakura.ne.jp/github/QBPopupMenu/ss02.png)
+## Feature
+### Customizable Appearance
+QBPopupMenu is highly customizable, so you can create your own popup menu.
+
+The simple way to customize is set `color` and `highlightcolor` property of `QBPopupMenu`.
+If you want to customize deeply, you should create a subclass of `QBPopupMenu` and override some drawing methods.
+
+`QBPlasticPopupMenu` class in this repository is a good example of subclassing.
+
+### Auto Pagenation
+If you add many items to `QBPopupMenu`, it create pages and pagenator automatically.
+
+### Auto Bounding
+`QBPopupMenu` automatically adjust its frame depending on its content.
 
 
 ## Example
-    QBPopupMenu *popupMenu = [[QBPopupMenu alloc] init];
+    QBPopupMenuItem *item = [QBPopupMenuItem itemWithTitle:@"Text" target:self action:@selector(action:)];
+    QBPopupMenuItem *item2 = [QBPopupMenuItem itemWithImage:[UIImage imageNamed:@"image"] target:self action:@selector(action:)];
     
-    QBPopupMenuItem *item = [QBPopupMenuItem itemWithTitle:@"Text Only" target:self action:@selector(hoge:)];
-    
-    QBPopupMenuItem *item2 = [QBPopupMenuItem itemWithTitle:@"Text with Image" image:[UIImage imageNamed:@"image.png"] target:self action:@selector(hoge:)];
-    
-    popupMenu.items = [NSArray arrayWithObjects, item1, item2, nil];
-	
-	[popupMenu showInView:self.view atPoint:CGPointMake(...)];
+    QBPopupMenu *popupMenu = [[QBPopupMenu alloc] initWithItems:@[item, item2]];
 
-See *QBPopupMenu* project for more example usage.
+    [popupMenu showInView:self.view targetRect:... animated:YES];
 
 
 ## License
