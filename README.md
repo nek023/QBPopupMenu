@@ -32,7 +32,7 @@ If you want to customize deeply, you should create a subclass of `QBPopupMenu` a
 If you add many items to `QBPopupMenu`, it create pages and pagenator automatically.
 
 ### Auto Bounding
-`QBPopupMenu` automatically adjust its frame depending on the frame of the target view.
+`QBPopupMenu` automatically adjust its frame depending on the frame of target view.
 
 
 ## Example
