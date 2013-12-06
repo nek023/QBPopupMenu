@@ -23,7 +23,7 @@ If you want to install manually, download this repository and copy files in QBPo
 ### Customizable Appearance
 QBPopupMenu is highly customizable, so you can create your own popup menu.
 
-The simple way to customize is set `color` and `highlightcolor` property of `QBPopupMenu`.
+The simple way to customize is set `color` and `highlightcolor` property of `QBPopupMenu`.  
 If you want to customize deeply, you should create a subclass of `QBPopupMenu` and override some drawing methods.
 
 `QBPlasticPopupMenu` class in this repository is a good example of subclassing.
@@ -32,7 +32,7 @@ If you want to customize deeply, you should create a subclass of `QBPopupMenu` a
 If you add many items to `QBPopupMenu`, it create pages and pagenator automatically.
 
 ### Auto Bounding
-`QBPopupMenu` automatically adjust its frame depending on its content.
+`QBPopupMenu` automatically adjust its frame depending on the frame of target view.
 
 
 ## Example
