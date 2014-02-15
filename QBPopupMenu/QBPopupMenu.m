@@ -66,6 +66,7 @@ static const NSTimeInterval kQBPopupMenuAnimationDuration = 0.2;
         self.arrowSize = 9;
         self.arrowDirection = QBPopupMenuArrowDirectionDefault;
         self.popupMenuInsets = UIEdgeInsetsMake(10, 10, 10, 10);
+        self.margin = 2;
         
         self.color = [[UIColor blackColor] colorWithAlphaComponent:0.8];
         self.highlightedColor = [[UIColor darkGrayColor] colorWithAlphaComponent:0.8];
@@ -423,7 +424,7 @@ static const NSTimeInterval kQBPopupMenuAnimationDuration = 0.2;
         case QBPopupMenuArrowDirectionDown:
         {
             popupMenuFrame = CGRectMake(self.targetRect.origin.x + (self.targetRect.size.width - width) / 2.0,
-                                        self.targetRect.origin.y - height,
+                                        self.targetRect.origin.y - (height + self.margin),
                                         width,
                                         height);
             
@@ -443,7 +444,7 @@ static const NSTimeInterval kQBPopupMenuAnimationDuration = 0.2;
         case QBPopupMenuArrowDirectionUp:
         {
             popupMenuFrame = CGRectMake(self.targetRect.origin.x + (self.targetRect.size.width - width) / 2.0,
-                                        self.targetRect.origin.y + height,
+                                        self.targetRect.origin.y + (self.targetRect.size.height + self.margin),
                                         width,
                                         height);
             
@@ -462,7 +463,7 @@ static const NSTimeInterval kQBPopupMenuAnimationDuration = 0.2;
             
         case QBPopupMenuArrowDirectionLeft:
         {
-            popupMenuFrame = CGRectMake(self.targetRect.origin.x + self.targetRect.size.width,
+            popupMenuFrame = CGRectMake(self.targetRect.origin.x + (self.targetRect.size.width + self.margin),
                                         self.targetRect.origin.y + (self.targetRect.size.height - height) / 2.0,
                                         width,
                                         height);
@@ -482,7 +483,7 @@ static const NSTimeInterval kQBPopupMenuAnimationDuration = 0.2;
             
         case QBPopupMenuArrowDirectionRight:
         {
-            popupMenuFrame = CGRectMake(self.targetRect.origin.x - width,
+            popupMenuFrame = CGRectMake(self.targetRect.origin.x - (width + self.margin),
                                         self.targetRect.origin.y + (self.targetRect.size.height - height) / 2.0,
                                         width,
                                         height);
