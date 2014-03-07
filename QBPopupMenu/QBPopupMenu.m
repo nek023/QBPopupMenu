@@ -112,10 +112,10 @@ static const NSTimeInterval kQBPopupMenuAnimationDuration = 0.2;
     QBPopupMenuArrowDirection arrowDirection = self.arrowDirection;
     
     if (arrowDirection == QBPopupMenuArrowDirectionDefault) {
-        if (targetRect.origin.y - ((self.height + self.arrowSize) - self.popupMenuInsets.top) >= 0) {
+        if ((targetRect.origin.y - (self.height + self.arrowSize)) >= self.popupMenuInsets.top) {
             arrowDirection = QBPopupMenuArrowDirectionDown;
         }
-        else if (targetRect.origin.y + targetRect.size.height + (self.height + self.arrowSize) + self.popupMenuInsets.bottom < view.bounds.size.height) {
+        else if ((targetRect.origin.y + targetRect.size.height + (self.height + self.arrowSize)) < (view.bounds.size.height - self.popupMenuInsets.bottom)) {
             arrowDirection = QBPopupMenuArrowDirectionUp;
         }
         else {
