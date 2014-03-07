@@ -112,10 +112,10 @@ static const NSTimeInterval kQBPopupMenuAnimationDuration = 0.2;
     QBPopupMenuArrowDirection arrowDirection = self.arrowDirection;
     
     if (arrowDirection == QBPopupMenuArrowDirectionDefault) {
-        if (targetRect.origin.y - ((self.height + self.arrowDirection) - self.popupMenuInsets.top) >= 0) {
+        if ((targetRect.origin.y - (self.height + self.arrowSize)) >= self.popupMenuInsets.top) {
             arrowDirection = QBPopupMenuArrowDirectionDown;
         }
-        else if (targetRect.origin.y + targetRect.size.height + (self.height + self.arrowDirection) + self.popupMenuInsets.bottom < view.bounds.size.height) {
+        else if ((targetRect.origin.y + targetRect.size.height + (self.height + self.arrowSize)) < (view.bounds.size.height - self.popupMenuInsets.bottom)) {
             arrowDirection = QBPopupMenuArrowDirectionUp;
         }
         else {
@@ -743,31 +743,45 @@ static const NSTimeInterval kQBPopupMenuAnimationDuration = 0.2;
     
     switch (arrowDirection) {
         case QBPopupMenuArrowDirectionDown:
+        {
             arrowRect = CGRectMake(point.x - arrowSize + 1.0,
                                    point.y - arrowSize,
                                    arrowSize * 2.0 - 1.0,
                                    arrowSize);
+            
+            arrowRect.origin.x = MIN(MAX(arrowRect.origin.x, self.cornerRadius),
+                                     self.frame.size.width - self.cornerRadius - arrowRect.size.width);
+        }
             break;
             
         case QBPopupMenuArrowDirectionUp:
+        {
             arrowRect = CGRectMake(point.x - arrowSize + 1.0,
                                    0,
                                    arrowSize * 2.0 - 1.0,
                                    arrowSize);
+            
+            arrowRect.origin.x = MIN(MAX(arrowRect.origin.x, self.cornerRadius),
+                                     self.frame.size.width - self.cornerRadius - arrowRect.size.width);
+        }
             break;
             
         case QBPopupMenuArrowDirectionLeft:
+        {
             arrowRect = CGRectMake(0,
                                    point.y - arrowSize + 1.0,
                                    arrowSize,
                                    arrowSize * 2.0 - 1.0);
+        }
             break;
             
         case QBPopupMenuArrowDirectionRight:
+        {
             arrowRect = CGRectMake(point.x - arrowSize,
                                    point.y - arrowSize + 1.0,
                                    arrowSize,
                                    arrowSize * 2.0 - 1.0);
+        }
             break;
             
         default:
