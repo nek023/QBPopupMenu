@@ -172,7 +172,8 @@ static const NSTimeInterval kQBPopupMenuAnimationDuration = 0.2;
     
     // Show
     [view addSubview:self.overlayView];
-    
+    self.visible = YES;
+
     if (animated) {
         self.alpha = 0;
         [self.overlayView addSubview:self];
@@ -180,8 +181,6 @@ static const NSTimeInterval kQBPopupMenuAnimationDuration = 0.2;
         [UIView animateWithDuration:kQBPopupMenuAnimationDuration animations:^(void) {
             self.alpha = 1.0;
         } completion:^(BOOL finished) {
-            self.visible = YES;
-            
             // Delegate
             if (self.delegate && [self.delegate respondsToSelector:@selector(popupMenuDidAppear:)]) {
                 [self.delegate popupMenuDidAppear:self];
@@ -189,8 +188,6 @@ static const NSTimeInterval kQBPopupMenuAnimationDuration = 0.2;
         }];
     } else {
         [self.overlayView addSubview:self];
-        
-        self.visible = YES;
         
         // Delegate
         if (self.delegate && [self.delegate respondsToSelector:@selector(popupMenuDidAppear:)]) {
