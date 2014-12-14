@@ -95,7 +95,9 @@
 
 - (void)performAction
 {
-    if (self.item.target && self.item.action) {
+    if (self.item.target && self.item.action && self.item.argument) {
+        [self.item.target performSelector:self.item.action withObject:self.item.argument afterDelay:0];
+    } else if (self.item.target && self.item.action) {
         [self.item.target performSelector:self.item.action withObject:nil afterDelay:0];
     }
     
