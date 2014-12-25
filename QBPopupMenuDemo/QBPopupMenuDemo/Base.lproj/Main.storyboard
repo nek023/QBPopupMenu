@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13A603" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -18,23 +20,9 @@
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="SVa-hM-Tci">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ikL-ji-9TX">
-                                <rect key="frame" x="99" y="184" width="122" height="33"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
-                                <state key="normal" title="QBPopupMenu">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="showPopupMenu:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="4VF-zd-5Tc"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QZq-OA-HI4">
-                                <rect key="frame" x="73" y="350" width="175" height="33"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QZq-OA-HI4">
+                                <rect key="frame" x="73" y="165" width="175" height="33"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
                                 <state key="normal" title="QBPlasticPopupMenu">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -44,12 +32,52 @@
                                     <action selector="showPlasticPopupMenu:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="LNF-6L-y6z"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JGI-bE-Mei">
+                                <rect key="frame" x="88" y="230" width="145" height="30"/>
+                                <state key="normal" title="QBPopupMenuBlcok">
+                                    <color key="titleColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="showPopupMenuBlock:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="hp8-Wu-jQr"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n0x-i3-mzO">
+                                <rect key="frame" x="65" y="268" width="191" height="30"/>
+                                <state key="normal" title="QBPlasticPopupMenuBlcok">
+                                    <color key="titleColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="showPlasticPopupMenuBlcok:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="D8f-sz-MEE"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ikL-ji-9TX">
+                                <rect key="frame" x="99" y="124" width="122" height="33"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
+                                <state key="normal" title="QBPopupMenu">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="showPopupMenu:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="4VF-zd-5Tc"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="SVa-hM-Tci" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="top" id="95y-cr-F4Z"/>
-                            <constraint firstItem="SVa-hM-Tci" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="QVs-Ys-DG2"/>
-                            <constraint firstAttribute="trailing" secondItem="SVa-hM-Tci" secondAttribute="trailing" id="cJB-t6-fAU"/>
+                            <constraint firstAttribute="centerX" secondItem="JGI-bE-Mei" secondAttribute="centerX" constant="-0.5" id="2v4-Ot-B5m"/>
+                            <constraint firstItem="SVa-hM-Tci" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="-16" id="90w-27-29t"/>
+                            <constraint firstItem="SVa-hM-Tci" firstAttribute="top" secondItem="8x1-Wx-gRy" secondAttribute="bottom" constant="-20" id="9co-E0-wmk"/>
+                            <constraint firstAttribute="centerY" secondItem="n0x-i3-mzO" secondAttribute="centerY" constant="1" id="P6T-nU-LGh"/>
+                            <constraint firstItem="6dO-9s-DUx" firstAttribute="top" secondItem="SVa-hM-Tci" secondAttribute="bottom" id="UEK-Uc-OLk"/>
+                            <constraint firstAttribute="centerY" secondItem="QZq-OA-HI4" secondAttribute="centerY" constant="102.5" id="a0M-dy-GIO"/>
+                            <constraint firstAttribute="centerX" secondItem="QZq-OA-HI4" secondAttribute="centerX" constant="-0.5" id="ceT-Ft-Eo3"/>
+                            <constraint firstAttribute="centerX" secondItem="n0x-i3-mzO" secondAttribute="centerX" constant="-0.5" id="dqV-AV-2LQ"/>
+                            <constraint firstAttribute="centerY" secondItem="ikL-ji-9TX" secondAttribute="centerY" constant="143.5" id="eU1-8h-pKK"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="SVa-hM-Tci" secondAttribute="trailing" constant="-16" id="haW-TR-eXA"/>
+                            <constraint firstAttribute="centerY" secondItem="JGI-bE-Mei" secondAttribute="centerY" constant="39" id="uTx-FY-v2j"/>
+                            <constraint firstAttribute="centerX" secondItem="ikL-ji-9TX" secondAttribute="centerX" id="zg0-6r-POg"/>
                             <constraint firstItem="6dO-9s-DUx" firstAttribute="top" secondItem="SVa-hM-Tci" secondAttribute="bottom" id="zxV-gD-D7n"/>
                         </constraints>
                     </view>

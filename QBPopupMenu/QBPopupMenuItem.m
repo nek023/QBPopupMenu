@@ -12,6 +12,7 @@
 
 @property (nonatomic, weak, readwrite) id target;
 @property (nonatomic, assign, readwrite) SEL action;
+@property (nonatomic, copy, readwrite) void(^actionBlock)();
 
 @property (nonatomic, copy, readwrite) NSString *title;
 @property (nonatomic, copy, readwrite) UIImage *image;
@@ -59,5 +60,39 @@
     
     return self;
 }
+
+
++ (instancetype)itemWithTitle:(NSString *)title actionBlcok: (void(^)())action
+{
+    return [[self alloc] initWithTitle:title actionBlock:action];
+}
++ (instancetype)itemWithImage:(UIImage *)image actionBlock: (void(^)())action
+{
+    return [[self alloc] initWithImage:image actionBlock:action];
+}
++ (instancetype)itemWithTitle:(NSString *)title image:(UIImage *)image actionBlcok: (void(^)())action
+{
+    return [[self alloc] initWithTitle:title image:image actionBlcok:action];
+}
+
+- (instancetype)initWithTitle:(NSString *)title actionBlock: (void(^)())action
+{
+    return [self initWithTitle:title image:nil actionBlcok:action];
+}
+- (instancetype)initWithImage:(UIImage *)image actionBlock: (void(^)())action
+{
+    return [self initWithTitle:nil image:image actionBlcok:action];
+}
+- (instancetype)initWithTitle:(NSString *)title image:(UIImage *)image actionBlcok: (void(^)())action
+{
+    self = [super init];
+    if (self) {
+        self.title = title;
+        self.image = image;
+        self.actionBlock = action;
+    }
+    return self;
+}
+
 
 @end
