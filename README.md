@@ -6,9 +6,9 @@ Its appearance is similar to `UIMenuController` of iOS 7, and it has several new
 
 
 ## Screenshot
-![ss01.png](http://adotout.sakura.ne.jp/github/QBPopupMenu/2.0/ss01.png)
+![screenshot01.png](screenshot01.png)
 
-![ss02.png](http://adotout.sakura.ne.jp/github/QBPopupMenu/2.0/ss02.png)
+![screenshot02.png](screenshot02.png)
 
 
 ## Installation
@@ -38,7 +38,7 @@ If you add many items to `QBPopupMenu`, it create pages and pagenator automatica
 ## Example
     QBPopupMenuItem *item = [QBPopupMenuItem itemWithTitle:@"Text" target:self action:@selector(action:)];
     QBPopupMenuItem *item2 = [QBPopupMenuItem itemWithImage:[UIImage imageNamed:@"image"] target:self action:@selector(action:)];
-    
+
     QBPopupMenu *popupMenu = [[QBPopupMenu alloc] initWithItems:@[item, item2]];
 
     [popupMenu showInView:self.view targetRect:... animated:YES];
