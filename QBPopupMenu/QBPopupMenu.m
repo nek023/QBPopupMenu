@@ -23,7 +23,7 @@ static const NSTimeInterval kQBPopupMenuAnimationDuration = 0.2;
 @property (nonatomic, assign) CGRect targetRect;
 
 @property (nonatomic, assign) NSUInteger page;
-@property (nonatomic, assign) QBPopupMenuArrowDirection actualArrorDirection;
+@property (nonatomic, assign) QBPopupMenuArrowDirection actualArrowDirection;
 @property (nonatomic, assign) CGPoint arrowPoint;
 
 @property (nonatomic, strong) NSMutableArray *itemViews;
@@ -126,7 +126,7 @@ static const NSTimeInterval kQBPopupMenuAnimationDuration = 0.2;
         }
     }
     
-    self.actualArrorDirection = arrowDirection;
+    self.actualArrowDirection = arrowDirection;
     
     // Calculate width
     CGFloat maximumWidth = 0;
@@ -300,7 +300,7 @@ static const NSTimeInterval kQBPopupMenuAnimationDuration = 0.2;
     // Create new array
     NSMutableArray *itemViews = [NSMutableArray array];
     CGFloat width = 0;
-    if (self.actualArrorDirection == QBPopupMenuArrowDirectionLeft || self.actualArrorDirection == QBPopupMenuArrowDirectionRight) {
+    if (self.actualArrowDirection == QBPopupMenuArrowDirectionLeft || self.actualArrowDirection == QBPopupMenuArrowDirectionRight) {
         width += self.arrowSize;
     }
     
@@ -316,7 +316,7 @@ static const NSTimeInterval kQBPopupMenuAnimationDuration = 0.2;
             // Create new array
             itemViews = [NSMutableArray array];
             width = pagenatorWidth;
-            if (self.actualArrorDirection == QBPopupMenuArrowDirectionLeft || self.actualArrorDirection == QBPopupMenuArrowDirectionRight) {
+            if (self.actualArrowDirection == QBPopupMenuArrowDirectionLeft || self.actualArrowDirection == QBPopupMenuArrowDirectionRight) {
                 width += self.arrowSize;
             }
         }
@@ -370,7 +370,7 @@ static const NSTimeInterval kQBPopupMenuAnimationDuration = 0.2;
 - (void)layoutVisibleItemViews
 {
     CGFloat height = self.height;
-    if (self.actualArrorDirection == QBPopupMenuArrowDirectionDown || self.actualArrorDirection == QBPopupMenuArrowDirectionUp) {
+    if (self.actualArrowDirection == QBPopupMenuArrowDirectionDown || self.actualArrowDirection == QBPopupMenuArrowDirectionUp) {
         height += self.arrowSize;
     }
     
@@ -382,16 +382,16 @@ static const NSTimeInterval kQBPopupMenuAnimationDuration = 0.2;
         [self resetItemViewState:itemView];
         
         // Set item view insets
-        if (i == 0 && self.actualArrorDirection == QBPopupMenuArrowDirectionLeft) {
+        if (i == 0 && self.actualArrowDirection == QBPopupMenuArrowDirectionLeft) {
             itemView.button.contentEdgeInsets = UIEdgeInsetsMake(0, self.arrowSize, 0, 0);
         }
-        else if (i == self.visibleItemViews.count - 1 && self.actualArrorDirection == QBPopupMenuArrowDirectionRight) {
+        else if (i == self.visibleItemViews.count - 1 && self.actualArrowDirection == QBPopupMenuArrowDirectionRight) {
             itemView.button.contentEdgeInsets = UIEdgeInsetsMake(0, 0, 0, self.arrowSize);
         }
-        else if (self.actualArrorDirection == QBPopupMenuArrowDirectionDown) {
+        else if (self.actualArrowDirection == QBPopupMenuArrowDirectionDown) {
             itemView.button.contentEdgeInsets = UIEdgeInsetsMake(0, 0, self.arrowSize, 0);
         }
-        else if (self.actualArrorDirection == QBPopupMenuArrowDirectionUp) {
+        else if (self.actualArrowDirection == QBPopupMenuArrowDirectionUp) {
             itemView.button.contentEdgeInsets = UIEdgeInsetsMake(self.arrowSize, 0, 0, 0);
         }
         
@@ -399,8 +399,8 @@ static const NSTimeInterval kQBPopupMenuAnimationDuration = 0.2;
         CGSize size = [itemView sizeThatFits:CGSizeZero];
         CGFloat width = size.width;
         
-        if ((i == 0 && self.actualArrorDirection == QBPopupMenuArrowDirectionLeft) ||
-            (i == self.visibleItemViews.count - 1 && self.actualArrorDirection == QBPopupMenuArrowDirectionRight)) {
+        if ((i == 0 && self.actualArrowDirection == QBPopupMenuArrowDirectionLeft) ||
+            (i == self.visibleItemViews.count - 1 && self.actualArrowDirection == QBPopupMenuArrowDirectionRight)) {
             width += self.arrowSize;
         }
         
@@ -420,7 +420,7 @@ static const NSTimeInterval kQBPopupMenuAnimationDuration = 0.2;
     CGFloat width = itemView.frame.origin.x + itemView.frame.size.width;
     CGFloat height = itemView.frame.origin.y + itemView.frame.size.height;
     
-    switch (self.actualArrorDirection) {
+    switch (self.actualArrowDirection) {
         case QBPopupMenuArrowDirectionDown:
         {
             popupMenuFrame = CGRectMake(self.targetRect.origin.x + (self.targetRect.size.width - width) / 2.0,
@@ -553,7 +553,7 @@ static const NSTimeInterval kQBPopupMenuAnimationDuration = 0.2;
     UIGraphicsBeginImageContextWithOptions(self.bounds.size, NO, 0);
     
     // Draw body
-    CGFloat y = (self.actualArrorDirection == QBPopupMenuArrowDirectionUp) ? self.arrowSize : 0;
+    CGFloat y = (self.actualArrowDirection == QBPopupMenuArrowDirectionUp) ? self.arrowSize : 0;
     CGFloat height = self.height;
     
     for (NSInteger i = 0; i < self.visibleItemViews.count; i++) {
@@ -565,12 +565,12 @@ static const NSTimeInterval kQBPopupMenuAnimationDuration = 0.2;
                 CGRect headRect;
                 CGRect bodyRect;
                 CGRect tailRect;
-                if (self.actualArrorDirection == QBPopupMenuArrowDirectionLeft) {
+                if (self.actualArrowDirection == QBPopupMenuArrowDirectionLeft) {
                     headRect = CGRectMake(self.arrowSize, y, self.cornerRadius, height);
                     bodyRect = CGRectMake(self.arrowSize + self.cornerRadius, y, frame.size.width - (self.arrowSize + self.cornerRadius * 2.0), height);
                     tailRect = CGRectMake(frame.size.width - self.cornerRadius, y, self.cornerRadius, height);
                 }
-                else if (self.actualArrorDirection == QBPopupMenuArrowDirectionRight) {
+                else if (self.actualArrowDirection == QBPopupMenuArrowDirectionRight) {
                     headRect = CGRectMake(0, y, self.cornerRadius, height);
                     bodyRect = CGRectMake(self.cornerRadius, y, frame.size.width - (self.arrowSize + self.cornerRadius * 2.0), height);
                     tailRect = CGRectMake(frame.size.width - (self.arrowSize + self.cornerRadius), y, self.cornerRadius, height);
@@ -592,7 +592,7 @@ static const NSTimeInterval kQBPopupMenuAnimationDuration = 0.2;
             } else {
                 CGRect headRect;
                 CGRect bodyRect;
-                if (self.actualArrorDirection == QBPopupMenuArrowDirectionLeft) {
+                if (self.actualArrowDirection == QBPopupMenuArrowDirectionLeft) {
                     headRect = CGRectMake(self.arrowSize, y, self.cornerRadius, height);
                     bodyRect = CGRectMake(self.arrowSize + self.cornerRadius, y, frame.size.width - (self.arrowSize + self.cornerRadius), height);
                 } else {
@@ -610,7 +610,7 @@ static const NSTimeInterval kQBPopupMenuAnimationDuration = 0.2;
         else if (i == self.visibleItemViews.count - 1) {
             CGRect bodyRect;
             CGRect tailRect;
-            if (self.actualArrorDirection == QBPopupMenuArrowDirectionRight) {
+            if (self.actualArrowDirection == QBPopupMenuArrowDirectionRight) {
                 bodyRect = CGRectMake(frame.origin.x, y, frame.size.width - (self.cornerRadius + self.arrowSize), height);
                 tailRect = CGRectMake(frame.origin.x + frame.size.width - (self.cornerRadius + self.arrowSize), y, self.cornerRadius, height);
             } else {
@@ -632,7 +632,7 @@ static const NSTimeInterval kQBPopupMenuAnimationDuration = 0.2;
     }
     
     // Draw arrow
-    [self drawArrowAtPoint:self.arrowPoint arrowSize:self.arrowSize arrowDirection:self.actualArrorDirection highlighted:highlighted];
+    [self drawArrowAtPoint:self.arrowPoint arrowSize:self.arrowSize arrowDirection:self.actualArrowDirection highlighted:highlighted];
     
     // Create image from buffer
     UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
