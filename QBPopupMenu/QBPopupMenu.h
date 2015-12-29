@@ -44,6 +44,7 @@ typedef NS_ENUM(NSUInteger, QBPopupMenuArrowDirection) {
 @property (nonatomic, assign) QBPopupMenuArrowDirection arrowDirection;
 @property (nonatomic, assign) UIEdgeInsets popupMenuInsets;
 @property (nonatomic, assign) CGFloat margin;
+@property (nonatomic, assign) CGFloat separatorWidth;
 
 @property (nonatomic, strong) UIColor *color;
 @property (nonatomic, strong) UIColor *highlightedColor;
