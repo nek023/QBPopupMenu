@@ -142,4 +142,23 @@
     }
 }
 
+#pragma mark - Accessibility
+
+- (BOOL)isAccessibilityElement {
+    return YES;
+}
+
+- (UIAccessibilityTraits)accessibilityTraits
+{
+    return UIAccessibilityTraitButton;
+}
+
+- (NSString *)accessibilityLabel {
+    if (_item.accessibilityLabel) {
+        return _item.accessibilityLabel;
+    }
+    
+    return _item.title;
+}
+
 @end
