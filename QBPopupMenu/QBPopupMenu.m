@@ -34,6 +34,10 @@ static const NSTimeInterval kQBPopupMenuAnimationDuration = 0.2;
 
 @implementation QBPopupMenu
 
+- (CGRect)currentTargetRect {
+    return self.targetRect;
+}
+
 + (Class)itemViewClass
 {
     return [QBPopupMenuItemView class];

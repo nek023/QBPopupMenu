@@ -55,6 +55,8 @@ typedef NS_ENUM(NSUInteger, QBPopupMenuArrowDirection) {
 - (void)dismissAnimated:(BOOL)animated;
 - (void)updateWithTargetRect:(CGRect)targetRect;
 
+- (CGRect)currentTargetRect;
+
 // NOTE: When subclassing this class, use these methods to customize the appearance.
 + (Class)itemViewClass;
 + (Class)pagenatorViewClass;
